@@ -1,0 +1,23 @@
+#!/usr/bin/expect
+
+spawn vncpasswd
+
+expect "Password:"
+
+send "ms12345\r"
+
+expect "Verify:"
+
+send "ms12345\r"
+
+expect "Would you like to enter a view-only password (y/n)?"
+
+sleep 1
+
+send "n\r"
+
+spawn tigervncserver -xstartup /usr/bin/startxfce4 -SecurityTypes VncAuth,TLSVnc -geometry 1024x768 -localhost no :1 #5901
+
+spawn tigervncserver -xstartup /usr/bin/startxfce4 -SecurityTypes VncAuth,TLSVnc -geometry 1024x768 -localhost no :2 #5902
+
+expect eof
