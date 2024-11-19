@@ -1,5 +1,7 @@
 # Ubuntu VNC-noVNC Container 🐧✨
 
+![Version](https://img.shields.io/badge/version-v1.2.6-blue.svg)
+
 ## Overview 🚀
 
 Welcome to the **Ubuntu VNC Container** project! This Docker container is meticulously crafted to deliver a **lightweight** and **user-friendly** environment for running the **XFCE desktop environment** on a robust Ubuntu base. With seamless integration of a **VNC server**, this container enables you to connect remotely, facilitating **development**, **testing**, or simply accessing a **graphical interface** from virtually anywhere. 
