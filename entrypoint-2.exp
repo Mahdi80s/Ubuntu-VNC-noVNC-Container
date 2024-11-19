@@ -1,0 +1,33 @@
+#!/usr/bin/expect
+
+set timeout 5
+
+spawn openssl req -x509 -nodes -newkey rsa:3072 -keyout novnc.pem -out novnc.pem -days 3650
+
+expect "Country Name*"
+send "IR\r"
+
+expect "State or Province Name*"
+send "Tehran\r"
+
+expect "Locality Name*"
+send "Tehran\r"
+
+expect "Organization Name*"
+send "Mahdi\r"
+
+expect "Organizational Unit Name*"
+send "Mahdi-Sardari\r"
+
+expect "Common Name*"
+send "Mahdi.Sardari.com\r"
+
+expect "Email Address*"
+send "mahdisardari80@outlook.com\r"
+
+set timeout 5
+
+#Start VNC server and Websockify
+spawn websockify -D --web=/usr/share/novnc/ --cert=/home/Mahdi/novnc.pem 6080 localhost:5902
+
+expect eof
